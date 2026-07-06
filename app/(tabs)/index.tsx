@@ -1,11 +1,13 @@
-import { Text, View, StyleSheet } from "react-native";
-import { Link } from 'expo-router'
+import { StyleSheet, View } from "react-native";
+
+import Panel from '@/components/Panel';
 
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home screen</Text>
-      <Link href="/about" style={styles.button}>Go to About screen</Link>
+      <View>
+        <Panel label="Panel #1" />
+      </View>
     </View>
   );
 }
@@ -17,11 +19,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text: {
-    color: '#fff',
-  },
-  button: {
-    fontSize: 20,
-    color: 'purple'
+  panelContainer: {
+    flex: 1 / 3,
+    alignItems: 'center',
   }
 });
