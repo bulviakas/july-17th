@@ -10,9 +10,9 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <View>
-        <Section label="Geoguesser" onPress={() => router.push("/(tabs)/map-challenge")}/>
-        <Section label="Colour Catch" onPress={() => router.push("/(tabs)/colour-challenge")}/>
-        <Section label="Photo Booth" onPress={() => router.push("/(tabs)/photo-challenge")}/>
+        <Section label="Geoguesser" onPress={() => router.push("/(tabs)/map-section")}/>
+        <Section label="Colour Catch" onPress={() => router.push("/(tabs)/colour-section")}/>
+        <Section label="Photo Booth" onPress={() => router.push("/(tabs)/photo-section")}/>
       </View>
     </View>
   );
