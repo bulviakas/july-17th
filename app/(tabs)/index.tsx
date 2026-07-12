@@ -1,7 +1,7 @@
 import { StyleSheet, View } from "react-native";
 import { useRouter } from "expo-router";
 
-import Panel from '@/components/Panel';
+import Section from '@/components/section';
 
 export default function Index() {
 
@@ -10,9 +10,9 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <View>
-        <Panel label="Geoguesser" onPress={() => router.push("/(tabs)/map-challenge")}/>
-        <Panel label="Colour Catch" onPress={() => router.push("/(tabs)/colour-challenge")}/>
-        <Panel label="Photo Booth" onPress={() => router.push("/(tabs)/photo-challenge")}/>
+        <Section label="Geoguesser" onPress={() => router.push("/(tabs)/map-challenge")}/>
+        <Section label="Colour Catch" onPress={() => router.push("/(tabs)/colour-challenge")}/>
+        <Section label="Photo Booth" onPress={() => router.push("/(tabs)/photo-challenge")}/>
       </View>
     </View>
   );
