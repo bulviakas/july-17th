@@ -2,12 +2,13 @@ import { StyleSheet, View, Pressable, Text } from 'react-native'
 
 type Props = {
     label: string;
+    onPress?: () => void;
 };
 
-export default function Button({ label }: Props) {
+export default function Button({ label, onPress }: Props) {
     return (
         <View style={styles.panel}>
-            <Pressable style={styles.button} onPress={() => alert('A panel has been pressed.')}>
+            <Pressable style={styles.button} onPress={onPress}>
                 <Text style={styles.panelLabel}>{label}</Text>
             </Pressable>
         </View>
@@ -16,15 +17,16 @@ export default function Button({ label }: Props) {
 
 const styles = StyleSheet.create({
     panel: {
-        width: 320,
-        height: 67,
-        marginHorizontal: 10,
+        width: 250,
+        height: 120,
+        backgroundColor: '#81021f',
+        margin: 20,
         alignItems: 'center',
         justifyContent: 'center',
         padding: 8,
+        borderRadius: 20,
     },
     button: {
-        borderRadius: 10,
         width: '100%',
         height: '100%',
         alignItems: 'center',
@@ -32,7 +34,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     panelLabel: {
-        color: '#fff',
-        fontSize: 20,
+        color: '#fcf2d9',
+        fontSize: 24,
     },
 })
