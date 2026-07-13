@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Panel from '../../components/Panel';
 import ChallengeModal from '../../components/map-challenge-modal';
-import { CHALLENGES } from '../../assets/data/map-challenges';
+import { CHALLENGES } from '../../assets/data/challenges';
 import { MapChallenge } from '../../types/map-challenge';
 
 export default function MapSection() {
