@@ -41,7 +41,8 @@ export default function ChallengeModal({
           <ScrollView style={styles.scrollArea} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
             <Text style={styles.description}>{challenge.placeDescription}</Text>
             <Image source={challenge.image} style={styles.image} contentFit='cover' />
-            <Text style={styles.description}>{challenge.quest}</Text>
+            <Text style={styles.seperator}>Užduotis:</Text>
+            <Text style={styles.questText}>{challenge.quest}</Text>
           </ScrollView>
           <View style={styles.actions}>
             <TouchableOpacity style={styles.secondaryBtn} onPress={onClose}>
@@ -83,25 +84,29 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: '700',
+    margin: 6,
     marginBottom: 12,
     color: '#FFCA06'
   },
   description: {
-    fontSize: 14,
-    color: '#ed9bbd',
+    fontSize: 16,
+    color: '#ED9BBD',
     marginBottom: 20,
+    margin: 6,
+    fontStyle: 'italic',
   },
   actions: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
     gap: 10,
+    marginTop: 12,
   },
   secondaryBtn: {
     paddingVertical: 10,
     paddingHorizontal: 16,
   },
   secondaryBtnText: {
-    color: '#FFCA06',
+    color: '#ED9BBD',
   },
   primaryBtn: {
     backgroundColor: '#FFCA06',
@@ -114,7 +119,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   image: {
-    height: 400,
+    height: 300,
     margin: 6,
     marginBottom: 10,
     borderRadius: 18,
@@ -124,5 +129,16 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingBottom: 8,
+  },
+  questText: {
+    color: '#ED9BBD',
+    fontSize: 16,
+    margin: 8,
+  },
+  seperator: {
+    color: '#FFCA06',
+    fontSize: 18,
+    margin: 8,
+    fontWeight: 'bold',
   }
 });
