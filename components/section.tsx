@@ -19,12 +19,14 @@ const styles = StyleSheet.create({
     panel: {
         width: 250,
         height: 120,
-        backgroundColor: '#81021f',
+        backgroundColor: '#D4167B',
         margin: 20,
         alignItems: 'center',
         justifyContent: 'center',
         padding: 8,
         borderRadius: 20,
+        borderWidth: 2,
+        borderColor: 'white',
     },
     button: {
         width: '100%',

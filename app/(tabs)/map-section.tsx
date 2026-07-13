@@ -23,7 +23,7 @@ export default function MapSection() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.header}>Today's Challenges</Text>
+      <Text style={styles.header}>Geoguessr</Text>
       <FlatList<MapChallenge>
         data={CHALLENGES}
         keyExtractor={(item) => item.id}
@@ -41,6 +41,6 @@ export default function MapSection() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#070304', paddingTop: 20 },
-  header: { fontSize: 22, fontWeight: '700', marginLeft: 16, marginBottom: 8 },
-});
+  container: { flex: 1, backgroundColor: '#3F184D', paddingTop: 20 },
+  header: { fontSize: 22, fontWeight: '700', marginLeft: 16, marginBottom: 8, color: '#FFCA06' },
+}); 

@@ -37,7 +37,7 @@ export default function ChallengeModal({
           <Text style={styles.title}>{challenge.title}</Text>
           <Text style={styles.description}>{challenge.description}</Text>
 
-          {/* Real challenge UI/logic goes here */}
+          {/* Chellenge stuff to be done */}
 
           <View style={styles.actions}>
             <TouchableOpacity style={styles.secondaryBtn} onPress={onClose}>
@@ -50,7 +50,7 @@ export default function ChallengeModal({
               disabled={done}
             >
               <Text style={styles.primaryBtnText}>
-                {done ? 'Already Completed' : 'Mark Complete'}
+                {done ? 'Done' : 'Mark Complete'}
               </Text>
             </TouchableOpacity>
           </View>
@@ -69,18 +69,21 @@ const styles = StyleSheet.create({
   },
   card: {
     width: '85%',
-    backgroundColor: 'white',
+    backgroundColor: '#3F194D',
     borderRadius: 16,
     padding: 20,
+    borderWidth: 2,
+    borderColor: '#FFCA06'
   },
   title: {
     fontSize: 18,
     fontWeight: '700',
     marginBottom: 8,
+    color: '#FFCA06'
   },
   description: {
     fontSize: 14,
-    color: '#444',
+    color: '#ed9bbd',
     marginBottom: 20,
   },
   actions: {
@@ -93,16 +96,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   secondaryBtnText: {
-    color: '#666',
+    color: '#FFCA06',
   },
   primaryBtn: {
-    backgroundColor: '#34c759',
+    backgroundColor: '#FFCA06',
     borderRadius: 8,
     paddingVertical: 10,
     paddingHorizontal: 16,
   },
   primaryBtnText: {
-    color: 'white',
+    color: '#68097E',
     fontWeight: '600',
   },
 });
