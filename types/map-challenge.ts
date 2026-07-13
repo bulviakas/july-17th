@@ -1,7 +1,11 @@
+import { ImageSourcePropType } from "react-native";
+
 export interface MapChallenge {
   id: string;
   title: string;
-  description: string;
+  placeDescription: string;
+  image: ImageSourcePropType;
+  quest: string;
 }
 
 export type CompletedStatus = Record<string, boolean>;
@@ -11,4 +15,5 @@ export interface ChallengeContextValue {
   completeChallenge: (id: string) => void;
   resetChallenge: (id: string) => void;
   isCompleted: (id: string) => boolean;
+  isLoaded: boolean;
 }

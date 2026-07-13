@@ -1,19 +1,27 @@
 import { MapChallenge } from '../../types/map-challenge';
 
+const TowerImage = require('../images/tower.png');
+
 export const CHALLENGES: MapChallenge[] = [
   {
     id: 'c1',
     title: 'Quest #1',
-    description: 'Bla bla bla',
+    placeDescription: 'Bla bla bla',
+    image: TowerImage,
+    quest: 'Turn around 3 times',
   },
   {
     id: 'c2',
     title: 'Quest #2',
-    description: 'Bish bash bosh',
+    placeDescription: 'Bish bash bosh',
+    image: TowerImage,
+    quest: 'Say "Love you!"',
   },
   {
     id: 'c3',
     title: 'Quest #3',
-    description: "Ladadeeda~",
+    placeDescription: "Ladadeeda~",
+    image: TowerImage,
+    quest: 'Idk something',
   },
 ];

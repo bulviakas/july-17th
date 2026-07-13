@@ -1,5 +1,6 @@
 import React from 'react';
-import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Image } from 'expo-image';
+import { Modal, View, Text, TouchableOpacity, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import { useChallenges } from '../contexts/map-challenge-context';
 import { MapChallenge } from '../types/map-challenge';
 
@@ -8,6 +9,8 @@ interface ChallengeModalProps {
   visible: boolean;
   onClose: () => void;
 }
+
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 export default function ChallengeModal({
   challenge,
@@ -35,10 +38,11 @@ export default function ChallengeModal({
       <View style={styles.backdrop}>
         <View style={styles.card}>
           <Text style={styles.title}>{challenge.title}</Text>
-          <Text style={styles.description}>{challenge.description}</Text>
-
-          {/* Chellenge stuff to be done */}
-
+          <ScrollView style={styles.scrollArea} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+            <Text style={styles.description}>{challenge.placeDescription}</Text>
+            <Image source={challenge.image} style={styles.image} contentFit='cover' />
+            <Text style={styles.description}>{challenge.quest}</Text>
+          </ScrollView>
           <View style={styles.actions}>
             <TouchableOpacity style={styles.secondaryBtn} onPress={onClose}>
               <Text style={styles.secondaryBtnText}>Close</Text>
@@ -69,6 +73,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: '85%',
+    maxHeight: SCREEN_HEIGHT * 0.75,
     backgroundColor: '#3F194D',
     borderRadius: 16,
     padding: 20,
@@ -76,9 +81,9 @@ const styles = StyleSheet.create({
     borderColor: '#FFCA06'
   },
   title: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: '700',
-    marginBottom: 8,
+    marginBottom: 12,
     color: '#FFCA06'
   },
   description: {
@@ -108,4 +113,16 @@ const styles = StyleSheet.create({
     color: '#68097E',
     fontWeight: '600',
   },
+  image: {
+    height: 400,
+    margin: 6,
+    marginBottom: 10,
+    borderRadius: 18,
+  },
+  scrollArea: {
+    flexGrow: 0,
+  },
+  scrollContent: {
+    paddingBottom: 8,
+  }
 });

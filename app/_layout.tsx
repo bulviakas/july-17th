@@ -1,9 +1,12 @@
+import { ChallengeProvider } from "@/contexts/map-challenge-context";
 import { Stack } from "expo-router";
 
 export default function RootLayout() {
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false,  contentStyle: { backgroundColor: "#070304" }}} />
-    </Stack>
+    <ChallengeProvider>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false,  contentStyle: { backgroundColor: "#3F184D" }}} />
+      </Stack>
+    </ChallengeProvider>
   );
 }
