@@ -1,9 +1,9 @@
-import { StyleSheet, View } from "react-native";
-import { useState } from "react";
 import { useRouter } from "expo-router";
-import ProgressBar from '../../components/ProgressBar';
-import { useChallenges } from '../../contexts/map-challenge-context';
+import { useState } from "react";
+import { StyleSheet, View } from "react-native";
 import { CHALLENGES } from '../../assets/data/challenges';
+import ProgressBar from '../../components/ProgressBar';
+import { useChallenges } from '../../contexts/challenge-context';
 import { MapChallenge } from '../../types/map-challenge';
 
 

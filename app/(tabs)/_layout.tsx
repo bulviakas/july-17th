@@ -1,4 +1,3 @@
-import { ChallengeProvider } from '@/contexts/map-challenge-context';
 import { Stack } from 'expo-router';
 
 export default function TabLayout() {
