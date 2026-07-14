@@ -22,7 +22,7 @@ export default function PhotoBoothScreen() {
     setModalVisible(false);
   };
 
-  const sprocketLength = Math.max(40, CHALLENGES.length * 8);
+  const sprocketLength = Math.max(20, CHALLENGES.length * 4.3);
  
   return (
     <SafeAreaView style={styles.container}>
@@ -34,7 +34,7 @@ export default function PhotoBoothScreen() {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.filmContent}
         >
-          <SprocketStrip orientation="vertical" length={sprocketLength} />
+          <SprocketStrip length={sprocketLength} />
  
           <View style={styles.frameColumn}>
             {CHALLENGES.map((challenge) => (
@@ -46,7 +46,7 @@ export default function PhotoBoothScreen() {
             ))}
           </View>
  
-          <SprocketStrip orientation="vertical" length={sprocketLength} />
+          <SprocketStrip length={sprocketLength} />
         </ScrollView>
       </View>
  
@@ -68,17 +68,19 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 22,
     fontWeight: '700',
-    marginLeft: 16,
-    marginBottom: 16,
+    marginBottom: 20,
     color: '#FFCA06',
+    textAlign: 'center',
   },
   reel: {
     flex: 1,
-    backgroundColor: '#1a1a1a',
+    borderWidth: 4,
+    borderColor: "#FFCA06",
     marginHorizontal: 36,
     marginBottom: 16,
     borderRadius: 8,
-    overflow: 'hidden', 
+    overflow: 'hidden',
+    backgroundColor: '#C91C7A'
   },
   filmScroll: {
     flex: 1,

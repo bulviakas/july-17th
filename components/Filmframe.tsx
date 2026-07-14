@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   frameInner: {
     width: '100%',
     height: FRAME_HEIGHT,
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#C91C7A',
     borderWidth: 3,
     borderColor: '#555',
   },
