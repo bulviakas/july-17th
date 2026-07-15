@@ -2,17 +2,17 @@ import { Image } from 'expo-image';
 import React from 'react';
 import { Dimensions, Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useChallenges } from '../contexts/challenge-context';
-import { MapChallenge } from '../types/map-challenge';
+import { PhotoChallenge } from '@/types/photo-challenge';
 
 interface ChallengeModalProps {
-  challenge: MapChallenge | null;
+  challenge: PhotoChallenge | null;
   visible: boolean;
   onClose: () => void;
 }
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
-export default function ChallengeModal({
+export default function PhotoChallengeModal({
   challenge,
   visible,
   onClose,
@@ -39,10 +39,8 @@ export default function ChallengeModal({
         <View style={styles.card}>
           <Text style={styles.title}>{challenge.title}</Text>
           <ScrollView style={styles.scrollArea} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-            <Text style={styles.description}>{challenge.placeDescription}</Text>
-            <Image source={challenge.image} style={styles.image} contentFit='cover' />
-            <Text style={styles.seperator}>Užduotis:</Text>
-            <Text style={styles.questText}>{challenge.quest}</Text>
+            <Image source={challenge.exampleImage} style={styles.image} contentFit='cover' />
+            <Text style={styles.questText}>{challenge.creditText}</Text>
           </ScrollView>
           <View style={styles.actions}>
             <TouchableOpacity style={styles.secondaryBtn} onPress={onClose}>

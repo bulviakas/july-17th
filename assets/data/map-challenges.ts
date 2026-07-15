@@ -1,4 +1,4 @@
-import { MapChallenge } from '../../types/map-challenge';
+import { MapChallenge } from '@/types/map-challenge';
 
 const TowerImage = require('../images/tower.png');
 const RiverImage = require('../images/river.png');
@@ -6,7 +6,7 @@ const RobotImage = require('../images/lawn_robots.jpg');
 const LakesImage = require('../images/lakes.jpg');
 const TempImage = require('../images/whoops.png');
 
-export const CHALLENGES: MapChallenge[] = [
+export const MAP_CHALLENGES: MapChallenge[] = [
   {
     id: 'c1',
     title: "Ain't That Rocket Science?",

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { MAP_CHALLENGES } from '../../assets/data/map-challenges';
 import Panel from '../../components/Panel';
-import ChallengeModal from '../../components/map-challenge-modal';
-import { CHALLENGES } from '../../assets/data/challenges';
+import MapChallengeModal from '../../components/MapChallengeModal';
 import { MapChallenge } from '../../types/map-challenge';
 
 export default function MapSection() {
@@ -25,13 +25,13 @@ export default function MapSection() {
     <SafeAreaView style={styles.container}>
       <Text style={styles.header}>Geoguessr</Text>
       <FlatList<MapChallenge>
-        data={CHALLENGES}
+        data={MAP_CHALLENGES}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <Panel challenge={item} onPress={openChallenge} />
         )}
       />
-      <ChallengeModal
+      <MapChallengeModal
         challenge={selectedChallenge}
         visible={modalVisible}
         onClose={closeChallenge}

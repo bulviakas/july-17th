@@ -1,11 +1,11 @@
 import React from 'react';
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 import { useChallenges } from '../contexts/challenge-context';
-import { MapChallenge } from '../types/map-challenge';
+import { PhotoChallenge } from '@/types/photo-challenge';
 
 interface FilmFrameProps {
-  challenge: MapChallenge;
-  onPress: (challenge: MapChallenge) => void;
+  challenge: PhotoChallenge;
+  onPress: (challenge: PhotoChallenge) => void;
 }
 
 export default function FilmFrame({ challenge, onPress }: FilmFrameProps) {
@@ -21,9 +21,6 @@ export default function FilmFrame({ challenge, onPress }: FilmFrameProps) {
       <View style={[styles.frameInner, done && styles.frameInnerDone]}>
         {/* */}
       </View>
-      <Text style={styles.caption} numberOfLines={1}>
-        {challenge.title}
-      </Text>
     </TouchableOpacity>
   );
 }
@@ -33,23 +30,18 @@ const FRAME_HEIGHT = 140;
 const styles = StyleSheet.create({
   frameOuter: {
     width: '100%',
-    marginVertical: 6,
+    marginVertical: 10,
     alignItems: 'center',
   },
   frameInner: {
-    width: '100%',
+    width: '85%',
     height: FRAME_HEIGHT,
-    backgroundColor: '#C91C7A',
+    backgroundColor: '#ae1368',
     borderWidth: 3,
-    borderColor: '#555',
+    borderRadius: 6,
+    borderColor: '#ae1368',
   },
   frameInnerDone: {
-    borderColor: '#34c759',
-  },
-  caption: {
-    marginTop: 6,
-    fontSize: 12,
-    color: '#ddd',
-    textAlign: 'center',
+    borderColor: '#3F184D',
   },
 });

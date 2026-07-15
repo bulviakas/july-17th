@@ -1,7 +1,7 @@
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { CHALLENGES } from '../../assets/data/challenges';
+import { MAP_CHALLENGES } from '../../assets/data/map-challenges';
 import ProgressBar from '../../components/ProgressBar';
 import { useChallenges } from '../../contexts/challenge-context';
 import { MapChallenge } from '../../types/map-challenge';
@@ -44,7 +44,7 @@ export default function Index() {
         <Section label="Photo Booth" onPress={() => router.push("/(tabs)/photo-section")}/>
       </View>
       <View style={styles.progressContainer}>
-        <ProgressBar completed={completedCount} total={CHALLENGES.length} />
+        <ProgressBar completed={completedCount} total={MAP_CHALLENGES.length} />
       </View>
     </View>
   );

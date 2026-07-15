@@ -1,19 +1,19 @@
+import { PHOTO_CHALLENGES } from '@/assets/data/photo-challenges';
+import { PhotoChallenge } from '@/types/photo-challenge';
 import React, { useState } from 'react';
-import { ScrollView, View, Text, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import FilmFrame from '../../components/Filmframe';
 import SprocketStrip from '../../components/Sprocketstrip';
-import ChallengeModal from '../../components/map-challenge-modal';
-import { CHALLENGES } from '@/assets/data/challenges';
-import { MapChallenge } from '@/types/map-challenge';
+import PhotoChallengeModal from "@/components/PhotoChallengeModal"
 
 export default function PhotoBoothScreen() {
-  const [selectedChallenge, setSelectedChallenge] = useState<MapChallenge | null>(
+  const [selectedChallenge, setSelectedChallenge] = useState<PhotoChallenge | null>(
     null
   );
   const [modalVisible, setModalVisible] = useState<boolean>(false);
  
-  const openChallenge = (challenge: MapChallenge): void => {
+  const openChallenge = (challenge: PhotoChallenge): void => {
     setSelectedChallenge(challenge);
     setModalVisible(true);
   };
@@ -22,7 +22,7 @@ export default function PhotoBoothScreen() {
     setModalVisible(false);
   };
 
-  const sprocketLength = Math.max(20, CHALLENGES.length * 4.3);
+  const sprocketLength = Math.max(16, PHOTO_CHALLENGES.length * 4);
  
   return (
     <SafeAreaView style={styles.container}>
@@ -37,7 +37,7 @@ export default function PhotoBoothScreen() {
           <SprocketStrip length={sprocketLength} />
  
           <View style={styles.frameColumn}>
-            {CHALLENGES.map((challenge) => (
+            {PHOTO_CHALLENGES.map((challenge) => (
               <FilmFrame
                 key={challenge.id}
                 challenge={challenge}
@@ -49,12 +49,13 @@ export default function PhotoBoothScreen() {
           <SprocketStrip length={sprocketLength} />
         </ScrollView>
       </View>
+
+      <PhotoChallengeModal
+              challenge={selectedChallenge}
+              visible={modalVisible}
+              onClose={closeChallenge}
+            />
  
-      <ChallengeModal
-        challenge={selectedChallenge}
-        visible={modalVisible}
-        onClose={closeChallenge}
-      />
     </SafeAreaView>
   );
 }
