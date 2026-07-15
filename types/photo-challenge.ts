@@ -3,7 +3,7 @@ import { ImageSourcePropType } from "react-native";
 export interface PhotoChallenge {
   id: string;
   title: string;
-  exampleImage: ImageSourcePropType;
+  exampleImage: ImageSourcePropType | string;
   creditText: string;
 }
 

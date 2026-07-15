@@ -40,7 +40,7 @@ export default function PhotoChallengeModal({
           <Text style={styles.title}>{challenge.title}</Text>
           <ScrollView style={styles.scrollArea} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
             <Image source={challenge.exampleImage} style={styles.image} contentFit='cover' />
-            <Text style={styles.questText}>{challenge.creditText}</Text>
+            <Text style={styles.creditText}>{challenge.creditText}</Text>
           </ScrollView>
           <View style={styles.actions}>
             <TouchableOpacity style={styles.secondaryBtn} onPress={onClose}>
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   image: {
     height: 300,
     margin: 6,
-    marginBottom: 10,
+    marginBottom: 2,
     borderRadius: 18,
   },
   scrollArea: {
@@ -128,9 +128,9 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingBottom: 8,
   },
-  questText: {
+  creditText: {
     color: '#ED9BBD',
-    fontSize: 16,
+    fontSize: 10,
     margin: 8,
   },
   seperator: {
