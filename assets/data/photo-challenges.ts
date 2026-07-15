@@ -1,4 +1,4 @@
-import { PhotoChallenge } from "@/types/photo-challenge";
+import { PhotoChallenge } from "@/types/PhotoChallenge";
 
 
 export const PHOTO_CHALLENGES: PhotoChallenge[] = [

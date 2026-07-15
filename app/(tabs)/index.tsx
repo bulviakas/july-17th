@@ -3,8 +3,8 @@ import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { MAP_CHALLENGES } from '../../assets/data/map-challenges';
 import ProgressBar from '../../components/ProgressBar';
-import { useChallenges } from '../../contexts/challenge-context';
-import { MapChallenge } from '../../types/map-challenge';
+import { useChallenges } from '../../contexts/ChallengeProvider';
+import { MapChallenge } from '../../types/MapChallenge';
 
 
 import Section from '@/components/section';

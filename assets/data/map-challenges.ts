@@ -1,4 +1,4 @@
-import { MapChallenge } from '@/types/map-challenge';
+import { MapChallenge } from '@/types/MapChallenge';
 
 const TowerImage = require('../images/tower.png');
 const RiverImage = require('../images/river.png');

@@ -1,11 +1,11 @@
 import { PHOTO_CHALLENGES } from '@/assets/data/photo-challenges';
-import { PhotoChallenge } from '@/types/photo-challenge';
+import PhotoChallengeModal from "@/components/PhotoChallengeModal";
+import { PhotoChallenge } from '@/types/PhotoChallenge';
 import React, { useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import FilmFrame from '../../components/Filmframe';
 import SprocketStrip from '../../components/Sprocketstrip';
-import PhotoChallengeModal from "@/components/PhotoChallengeModal"
 
 export default function PhotoBoothScreen() {
   const [selectedChallenge, setSelectedChallenge] = useState<PhotoChallenge | null>(

@@ -1,8 +1,8 @@
 import { Image } from 'expo-image';
 import React from 'react';
 import { Dimensions, Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { useChallenges } from '../contexts/challenge-context';
-import { MapChallenge } from '../types/map-challenge';
+import { useChallenges } from '../contexts/ChallengeProvider';
+import { MapChallenge } from '../types/MapChallenge';
 
 interface ChallengeModalProps {
   challenge: MapChallenge | null;

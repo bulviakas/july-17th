@@ -1,7 +1,7 @@
+import { PhotoChallenge } from '@/types/PhotoChallenge';
 import React from 'react';
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
-import { useChallenges } from '../contexts/challenge-context';
-import { PhotoChallenge } from '@/types/photo-challenge';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { useChallenges } from '../contexts/ChallengeProvider';
 
 interface FilmFrameProps {
   challenge: PhotoChallenge;

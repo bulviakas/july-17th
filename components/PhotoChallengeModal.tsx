@@ -1,33 +1,70 @@
 import { Image } from 'expo-image';
-import React from 'react';
-import { Dimensions, Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { useChallenges } from '../contexts/challenge-context';
-import { PhotoChallenge } from '@/types/photo-challenge';
-
+import * as ImagePicker from 'expo-image-picker';
+import React, { useState } from 'react';
+import { Alert, Dimensions, Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
+import { useChallenges } from '../contexts/ChallengeProvider';
+import { PhotoChallenge } from '@/types/PhotoChallenge';
+ 
 interface ChallengeModalProps {
   challenge: PhotoChallenge | null;
   visible: boolean;
   onClose: () => void;
 }
-
+ 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
-
+ 
 export default function PhotoChallengeModal({
   challenge,
   visible,
   onClose,
 }: ChallengeModalProps) {
-  const { completeChallenge, isCompleted } = useChallenges();
-
+  const { completeChallenge, isCompleted, setChallengePhoto, getChallengePhoto } =
+    useChallenges();
+ 
+  const [isPicking, setIsPicking] = useState<boolean>(false);
+ 
   if (!challenge) return null;
-
+ 
   const done = isCompleted(challenge.id);
 
-  const handleComplete = (): void => {
-    completeChallenge(challenge.id);
-    onClose();
+  const uploadedPhotoUri = getChallengePhoto(challenge.id);
+ 
+  const handlePickImage = async (): Promise<void> => {
+    const permission =
+      await ImagePicker.requestMediaLibraryPermissionsAsync();
+ 
+    if (!permission.granted) {
+      Alert.alert(
+        'Permission needed',
+        'Please allow access to your photo gallery to complete this challenge.'
+      );
+      return;
+    }
+ 
+    setIsPicking(true);
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ['images'],
+        quality: 0.8,
+        allowsEditing: false,
+      });
+ 
+      if (!result.canceled && result.assets.length > 0) {
+        const uri = result.assets[0].uri;
+        setChallengePhoto(challenge.id, uri);
+        completeChallenge(challenge.id);
+      }
+    } catch (err) {
+      console.warn('Image picker error:', err);
+      Alert.alert(
+        'Something went wrong',
+        'Could not open your gallery. Please try again.'
+      );
+    } finally {
+      setIsPicking(false);
+    }
   };
-
+ 
   return (
     <Modal
       visible={visible}
@@ -38,22 +75,46 @@ export default function PhotoChallengeModal({
       <View style={styles.backdrop}>
         <View style={styles.card}>
           <Text style={styles.title}>{challenge.title}</Text>
-          <ScrollView style={styles.scrollArea} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-            <Image source={challenge.exampleImage} style={styles.image} contentFit='cover' />
+          <ScrollView
+            style={styles.scrollArea}
+            contentContainerStyle={styles.scrollContent}
+            showsVerticalScrollIndicator={false}
+          >
+            <Image
+              source={challenge.exampleImage}
+              style={styles.image}
+              contentFit="cover"
+            />
             <Text style={styles.creditText}>{challenge.creditText}</Text>
+ 
+            {uploadedPhotoUri && (
+              <>
+                <Text style={styles.separator}>Your photo</Text>
+                <Image
+                  source={{ uri: uploadedPhotoUri }}
+                  style={styles.image}
+                  contentFit="cover"
+                />
+              </>
+            )}
           </ScrollView>
+ 
           <View style={styles.actions}>
             <TouchableOpacity style={styles.secondaryBtn} onPress={onClose}>
               <Text style={styles.secondaryBtnText}>Close</Text>
             </TouchableOpacity>
-
+ 
             <TouchableOpacity
-              style={styles.primaryBtn}
-              onPress={handleComplete}
-              disabled={done}
+              style={[styles.primaryBtn, done && styles.primaryBtnDone]}
+              onPress={handlePickImage}
+              disabled={isPicking}
             >
               <Text style={styles.primaryBtnText}>
-                {done ? 'Done' : 'Mark Complete'}
+                {isPicking
+                  ? 'Opening gallery...'
+                  : done
+                  ? 'Retake / Change Photo'
+                  : 'Upload Photo'}
               </Text>
             </TouchableOpacity>
           </View>
@@ -133,10 +194,13 @@ const styles = StyleSheet.create({
     fontSize: 10,
     margin: 8,
   },
-  seperator: {
+  separator: {
     color: '#FFCA06',
     fontSize: 18,
     margin: 8,
     fontWeight: 'bold',
+  },
+  primaryBtnDone: {
+    backgroundColor: '#3F194D'
   }
 });

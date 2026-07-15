@@ -1,4 +1,4 @@
-import { ChallengeProvider } from "@/contexts/challenge-context";
+import { ChallengeProvider } from "@/contexts/ChallengeProvider";
 import { Stack } from "expo-router";
 
 export default function RootLayout() {

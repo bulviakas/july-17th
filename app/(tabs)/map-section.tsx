@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { FlatList, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MAP_CHALLENGES } from '../../assets/data/map-challenges';
-import Panel from '../../components/Panel';
 import MapChallengeModal from '../../components/MapChallengeModal';
-import { MapChallenge } from '../../types/map-challenge';
+import Panel from '../../components/Panel';
+import { MapChallenge } from '../../types/MapChallenge';
 
 export default function MapSection() {
   const [selectedChallenge, setSelectedChallenge] = useState<MapChallenge | null>(
