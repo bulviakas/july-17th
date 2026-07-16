@@ -5,7 +5,7 @@ import { getSlotId } from '@/utils/ColorSlotId';
 import { Image } from 'expo-image';
 import * as ImagePicker from 'expo-image-picker';
 import React, { useState } from 'react';
-import { Alert, Dimensions, Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 interface ColorChallengeModalProps {
   color: ColorChallenge | null;
@@ -87,11 +87,7 @@ export default function ColorChallengeModal({
             </Text>
           </View>
 
-          <ScrollView
-            style={styles.scrollArea}
-            contentContainerStyle={styles.grid}
-            showsVerticalScrollIndicator={false}
-          >
+          <View style={styles.grid} >
             {COLOR_CATEGORIES.map((category) => {
               const slotId = getSlotId(color.id, category.id);
               const slotDone = isCompleted(slotId);
@@ -121,9 +117,7 @@ export default function ColorChallengeModal({
                     </>
                   ) : (
                     <>
-                      <Text style={styles.slotIcon}>
-                        {isPicking ? '…' : '📷'}
-                      </Text>
+
                       <Text style={styles.slotLabel} numberOfLines={2}>
                         {category.label}
                       </Text>
@@ -132,7 +126,7 @@ export default function ColorChallengeModal({
                 </TouchableOpacity>
               );
             })}
-          </ScrollView>
+          </View>
 
           <View style={styles.actions}>
             <TouchableOpacity style={styles.closeBtn} onPress={onClose}>
@@ -154,7 +148,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: '88%',
-    maxHeight: SCREEN_HEIGHT * 0.78,
+    maxHeight: SCREEN_HEIGHT * 0.74,
     backgroundColor: '#3F194D',
     borderRadius: 16,
     padding: 20,
@@ -182,9 +176,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#ED9BBD',
-  },
-  scrollArea: {
-    flexGrow: 0,
   },
   grid: {
     flexDirection: 'row',
@@ -224,11 +215,6 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: '#fff',
     textAlign: 'center',
-  },
-  slotIcon: {
-    fontSize: 26,
-    marginBottom: 6,
-    opacity: 0.7,
   },
   slotLabel: {
     fontSize: 11,
