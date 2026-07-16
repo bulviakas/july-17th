@@ -1,11 +1,10 @@
+import { ALL_CHALLENGE_IDS } from "@/assets/data/all-challenges";
+import { BaseChallenge } from "@/types/BaseChallenge";
+import { useChallenges } from "@/utils/ChallengeProvider";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { MAP_CHALLENGES } from '../../assets/data/map-challenges';
 import ProgressBar from '../../components/ProgressBar';
-import { MapChallenge } from '../../types/MapChallenge';
-import { useChallenges } from '../../utils/ChallengeProvider';
-
 
 import Section from '@/components/section';
 
@@ -14,16 +13,14 @@ export default function Index() {
   const router = useRouter();
 
     const { completed } = useChallenges();
-    const [selectedChallenge, setSelectedChallenge] = useState<MapChallenge | null>(
+    const [selectedChallenge, setSelectedChallenge] = useState<BaseChallenge | null>(
       null
     );
     const [modalVisible, setModalVisible] = useState<boolean>(false);
   
-    const completedCount = Object.keys(completed).filter(
-      (id) => completed[id]
-    ).length;
+    const completedCount = Object.keys(completed).filter((id) => completed[id]).length;
 
-    const openChallenge = (challenge: MapChallenge): void => {
+    const openChallenge = (challenge: BaseChallenge): void => {
     setSelectedChallenge(challenge);
     setModalVisible(true);
   };
@@ -44,7 +41,7 @@ export default function Index() {
         <Section label="Photo Booth" onPress={() => router.push("/(tabs)/photo-section")}/>
       </View>
       <View style={styles.progressContainer}>
-        <ProgressBar completed={completedCount} total={MAP_CHALLENGES.length} />
+        <ProgressBar completed={completedCount} total={ALL_CHALLENGE_IDS.length} />
       </View>
     </View>
   );

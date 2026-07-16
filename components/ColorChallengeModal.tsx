@@ -1,11 +1,11 @@
+import { COLOR_CATEGORIES } from '@/assets/data/color-categories';
+import { ColorChallenge } from '@/types/ColorChallenge';
+import { useChallenges } from '@/utils/ChallengeProvider';
+import { getSlotId } from '@/utils/ColorSlotId';
 import { Image } from 'expo-image';
 import * as ImagePicker from 'expo-image-picker';
 import React, { useState } from 'react';
 import { Alert, Dimensions, Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { useChallenges } from '@/utils/ChallengeProvider';
-import { ColorChallenge } from '@/types/ColorChallenge';
-import { COLOR_CATEGORIES } from '@/assets/data/color-categories';
-import { getSlotId } from '@/utils/ColorSlotId';
 
 interface ColorChallengeModalProps {
   color: ColorChallenge | null;

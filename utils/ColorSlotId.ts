@@ -1,7 +1,7 @@
 const SLOT_SEPARATOR = '__';
 
 export function getSlotId(colorId: string, categoryId: string): string {
-    return '${colorId}${SLOT_SEPARATOR}${categoryId}';
+    return `${colorId}${SLOT_SEPARATOR}${categoryId}`;
 }
 
 export function parseSlotId(slotId: string): { colourId: string; categoryId: string} | null {

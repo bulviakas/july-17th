@@ -1,10 +1,10 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useChallenges } from '@/utils/ChallengeProvider';
-import { COLOR_CHALLENGES } from '@/assets/data/color-challenges';
 import { COLOR_CATEGORIES } from '@/assets/data/color-categories';
+import { COLOR_CHALLENGES } from '@/assets/data/color-challenges';
 import { ColorChallenge } from '@/types/ColorChallenge';
+import { useChallenges } from '@/utils/ChallengeProvider';
 import { getSlotId } from '@/utils/ColorSlotId';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 interface RainbowStripProps {
   onSelectColor: (color: ColorChallenge) => void;
