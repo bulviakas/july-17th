@@ -5,6 +5,10 @@ const RiverImage = require('../images/river.png');
 const RobotImage = require('../images/lawn_robots.jpg');
 const LakesImage = require('../images/lakes.jpg');
 const TempImage = require('../images/whoops.png');
+const TreeImage = require('../images/tree.png');
+const ParkImage = require('../images/park.png');
+const HillImage = require('../images/hill.png');
+
 
 export const MAP_CHALLENGES: MapChallenge[] = [
   {
@@ -32,7 +36,7 @@ export const MAP_CHALLENGES: MapChallenge[] = [
     id: 'c4',
     title: 'Šlapias Kelmas Dviems',
     placeDescription: 'Kur krenta ne tik lietus, bet ir dviračių ratai, po viena striuke vyksta aistringos diskusijos apie geriausius vaisius. Dežutė apelsinų praktiškai dreba iš baimės laukdama savo teismo nuosprendžio.',
-    image: TempImage,
+    image: TreeImage,
     quest: 'Iš sąrašo atspėti kuo daugiau vienas kito mėgstamų/nemėgstamų vaisių.',
   },
   {
@@ -46,14 +50,14 @@ export const MAP_CHALLENGES: MapChallenge[] = [
     id: 'c6',
     title: 'Geriausia Pietų Pertrauka',
     placeDescription: 'Kas galėjo pagalvoti, kad eilinė pietų pertrauka po muziejaus darbeliu gali tapti tokia įsimintina. Na bet viskam pirmas kartas ;)',
-    image: TempImage,
+    image: HillImage,
     quest: 'Doodles! Pripildyti visą knygelės puslapį įvairių aplinkoje pamatytų elementų piešinėliais.',
   },
   {
     id: 'c7',
     title: 'Burbulų Mišrainė',
     placeDescription: 'Ten kalbos pilasi ne paprastos rūšies arbata - saldūs burbuliukai sužvelnina kiekvieną pokalbį. O kiekvienas apkabinimas primena, jog viskas bus gerai.',
-    image: TempImage,
+    image: ParkImage,
     quest: 'Iš aplinkoje randamų raidžių siluetų vienas kitam sudėlioti trumpą palinkėjimą ateinantiems metams kartu.\n\n(Bonus iššūkis: šalia užšokti paimti burbulinės arbatos)',
   },
 ];
