@@ -1,9 +1,9 @@
+import { PhotoChallenge } from '@/types/PhotoChallenge';
 import { Image } from 'expo-image';
 import * as ImagePicker from 'expo-image-picker';
 import React, { useState } from 'react';
 import { Alert, Dimensions, Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
-import { useChallenges } from '../contexts/ChallengeProvider';
-import { PhotoChallenge } from '@/types/PhotoChallenge';
+import { useChallenges } from '../utils/ChallengeProvider';
  
 interface ChallengeModalProps {
   challenge: PhotoChallenge | null;

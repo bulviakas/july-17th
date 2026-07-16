@@ -1,27 +1,50 @@
-import { Link } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Text, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import RainbowStrip from '@/components/RainbowStrip';
+import ColorChallengeModal from '@/components/ColorChallengeModal';
+import { ColorChallenge } from '@/types/ColorChallenge';
 
-export default function AboutScreen() {
+export default function ColorSectionScreen() {
+  const [selectedColor, setSelectedColor] = useState<ColorChallenge | null>(
+    null
+  );
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+
+  const openColor = (color: ColorChallenge): void => {
+    setSelectedColor(color);
+    setModalVisible(true);
+  };
+
+  const closeModal = (): void => {
+    setModalVisible(false);
+  };
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Colour Catch</Text>
-      <Link href="/(tabs)" style={styles.button}>Go Home</Link>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.header}>Color Catch</Text>
+      <RainbowStrip onSelectColor={openColor} />
+      <ColorChallengeModal
+        color={selectedColor}
+        visible={modalVisible}
+        onClose={closeModal}
+      />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#070304',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: '#3F184D',
+    paddingTop: 20,
+    paddingHorizontal: 16,
+    paddingBottom: 16,
   },
-  text: {
-    color: '#fff',
+  header: {
+    fontSize: 22,
+    fontWeight: '700',
+    marginBottom: 16,
+    color: '#FFCA06',
   },
-  button: {
-    fontSize: 20,
-    color: 'green'
-  }
 });

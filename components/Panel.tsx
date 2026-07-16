@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { useChallenges } from '../contexts/ChallengeProvider';
 import { MapChallenge } from '../types/MapChallenge';
+import { useChallenges } from '../utils/ChallengeProvider';
 
 interface PanelProps {
   challenge: MapChallenge;
